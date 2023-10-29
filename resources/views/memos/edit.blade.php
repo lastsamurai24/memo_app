@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>memo create</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
+
 <body>
     <a href="{{ route('memos.index') }}">戻る</a>
     @if ($errors->any())
@@ -15,14 +17,14 @@
                 <b>{{ count($errors) }}件のエラーがあります。</b>
             </p>
             <ul>
-                @foreach($errors->all() as $error)
+                @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach
             </ul>
         </div>
     @endif
     <h1>更新</h1>
-    <form action="{{ route('memos.update',$memo) }}" method="post">
+    <form action="{{ route('memos.update', $memo) }}" method="post">
         @csrf
         @method('PATCH')
         <p>
@@ -37,4 +39,5 @@
         <input type="submit" value="更新">
     </form>
 </body>
+
 </html>
